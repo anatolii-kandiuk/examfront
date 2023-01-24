@@ -1,0 +1,11 @@
+.mt10 {
+    margin-top: 10px;
+}
+.pd3 {
+    padding: 3px;
+}
+
+.quiz-icon {
+    background-image: url("../../../../assets/quiz-icon.png");
+    background-size: cover;
+}
