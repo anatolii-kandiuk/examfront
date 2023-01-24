@@ -14,7 +14,7 @@ export class ViewQuizzesComponent implements OnInit{
       title: "Empty Test",
       description: "",
       maxMarks: "0",
-      numberOfQuestions: "0",    
+      numberOfQuestion: "0",    
       active: "",
       category: {
         title: "Empty"

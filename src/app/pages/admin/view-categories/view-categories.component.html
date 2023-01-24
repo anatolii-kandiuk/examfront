@@ -1,18 +1,17 @@
 <mat-card>
     <div class="container">
         <h2 class="mt20" mat-subheader>All Categories</h2>
-      
-        <div class="row mb20" *ngFor="let c of categories">
-            <div class="col-md-1" style="margin-top: 10px;">
-                <mat-icon mat-list-icon>category</mat-icon>
-            </div>
-            <div class="col-md-11" style="margin-left: -30px;">
-                <h3 mat-line style="margin-bottom: -0.5px;">{{ c.title }}</h3>
-                <p mat-line>{{ c.description }}</p>
-                <mat-divider></mat-divider>
-            </div>
-            
-        </div>
+        <mat-card-header class="row mb20" *ngFor="let c of categories">
+            <div mat-card-avatar class="category-icon"></div>
+    
+            <mat-card-title style="margin-bottom: 5px">
+                {{ c.title }}
+            </mat-card-title>
+            <mat-card-subtitle>
+                {{ c.description }}
+            </mat-card-subtitle>
+            <mat-divider></mat-divider>
+        </mat-card-header>
     </div>         
     
     <div class="container text-center mt20 mb20">
