@@ -5,6 +5,7 @@ import baseUrl from './helper';
 @Injectable({
   providedIn: 'root'
 })
+
 export class QuizService {
 
   constructor(private _http: HttpClient) { }
@@ -15,5 +16,9 @@ export class QuizService {
 
   public addQuiz(quiz: any) {
     return this._http.post(`${baseUrl}/quiz/`, quiz);
+  }
+
+  public deleteQuiz(quizId: any) {
+    return this._http.delete(`${baseUrl}/quiz/${quizId}`);
   }
 }
