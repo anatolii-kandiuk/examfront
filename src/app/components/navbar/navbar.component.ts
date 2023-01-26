@@ -22,12 +22,9 @@ export class NavbarComponent {
       });
     this.user = this.login.getUser();
   }
-
+  
   public logout() {
     this.login.logout();
-    
     window.location.reload();
-  
-    //this.login.loginStatusSubject.next(false);
   }
 }

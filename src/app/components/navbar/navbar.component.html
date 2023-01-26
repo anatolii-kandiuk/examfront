@@ -32,7 +32,8 @@
 
     <a
         *ngIf="login.isLoggedIn()"
-        mat-icon-button 
+        mat-button 
+        routerLink="/admin/profile"
         class="example-icon favorite-icon ml20 mr20" 
         aria-label="Example icon-button with share icon"
     >
@@ -42,7 +43,7 @@
     <a
         (click)="logout()"
         *ngIf="login.isLoggedIn()"
-        mat-icon-button 
+        mat-button 
         class="example-icon favorite-icon ml20 mr20" 
         aria-label="Example icon-button with share icon"
     >
