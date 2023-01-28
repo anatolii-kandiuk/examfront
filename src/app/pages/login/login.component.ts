@@ -30,9 +30,7 @@ export class LoginComponent {
         duration: 3000,
       });
       return;
-    }
-
-    if(
+    } else if (
       this.loginData.username.trim()=='' || 
       this.loginData.username==null
     ) {
@@ -56,9 +54,6 @@ export class LoginComponent {
               this.login.setUser(user);
               console.log(user);
 
-              // redirect ..ADMIN 
-              
-              // redirect ..NORMAL
               if (this.login.getUserRole() == "ADMIN") {
                 // admin
                 // window.location.href='/admin';
