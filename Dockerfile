@@ -22,7 +22,7 @@ RUN npm run build --prod
 FROM nginx:alpine
 
 # Copy the build output to replace the default nginx contents.
-COPY --from=build /usr/local/app/dist/examfront /usr/share/nginx/html
+COPY --from=build /app/dist/examfront /usr/share/nginx/html
 
 # Expose port 80
 EXPOSE 80
