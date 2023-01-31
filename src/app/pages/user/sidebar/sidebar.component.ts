@@ -9,7 +9,7 @@ import { CategoryService } from 'src/app/services/category.service';
 })
 export class SidebarComponent implements OnInit{
   
-  categories=[{title: ''}]
+  categories=[{categoryId: '', title: ''}]
 
   constructor(
     private _cat:CategoryService,

@@ -1,21 +1,17 @@
 <mat-card>
     <mat-action-list>
-        <div mat-subheader>Menu</div><hr>
-        <button routerLink="/user-dashboard" mat-list-item>
+        <div mat-subheader>Available Category</div><hr>
+        <button mat-list-item>
             <mat-icon mat-list-icon>home</mat-icon>
             Home
         </button>
-        <button mat-list-item>
+        <button routerLink="/user-dashboard/0" mat-list-item>
             <mat-icon mat-list-icon>list</mat-icon>
             All Quizzes
         </button>
-        <button mat-list-item *ngFor="let c of categories">
+        <button [routerLink]="'/user-dashboard/'+c.categoryId" mat-list-item *ngFor="let c of categories">
             <mat-icon mat-list-icon>quiz</mat-icon>
             {{ c.title }}
-        </button>
-        <button mat-list-item routerLink="/admin/profile">
-            <mat-icon mat-list-icon>logout</mat-icon>
-            Logout
         </button>
     </mat-action-list>
 </mat-card>
