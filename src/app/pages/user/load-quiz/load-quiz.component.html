@@ -19,10 +19,9 @@
                        <p class="truncate">{{ q.description }}</p>
                     </mat-card-content>
                     <mat-card-actions>
-                        <button mat-raised-button color="primary">View</button>
-                        <button [routerLink]="'/user-dashboard/instructions/' + q.quizId" mat-raised-button color="accent" class="ml20">Start</button>
-                        <button mat-button color="accent" class="ml20">Q:{{ q.numberOfQuestion }}</button>
-                        <button mat-button color="accent" class="ml20">N:{{ q.maxMarks }}</button>
+                        <button [routerLink]="'/user-dashboard/instructions/' + q.quizId" mat-raised-button color="primary" class="ml20">Start</button>
+                        <button mat-button color="accent" class="ml20">N:{{ q.numberOfQuestion }}</button>
+                        <button mat-button color="accent" class="ml20">Max:{{ q.maxMarks }}</button>
                     </mat-card-actions>
                 </mat-card>
             </div>

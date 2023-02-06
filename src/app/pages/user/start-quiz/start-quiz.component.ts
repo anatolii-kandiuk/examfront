@@ -2,6 +2,7 @@ import { LocationStrategy } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { QuestionService } from 'src/app/services/question.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-start-quiz',
@@ -22,11 +23,19 @@ export class StartQuizComponent implements OnInit {
       optionThree: '',
       optionFour: '',
       answer: '',
+      givenAnswer: '',
       quiz: {
         title: '',
+        maxMarks: 0,
       }
     },
   ];
+
+  marksGot = 0;
+  correctAnswers = 0;
+  attempted = 0;
+
+  isSubmit = false;
 
   constructor(
     private locationSt: LocationStrategy,
@@ -43,8 +52,12 @@ export class StartQuizComponent implements OnInit {
 
   loadQuestions() {
     this._questions.getQuestionsOfQuizForTest(this.quizId).subscribe(
-    (data:any) => {
+    (data: any) => {
       this.questions = data;
+
+      this.questions.forEach((q) => {
+        q["givenAnswer"] = ''; 
+      });
     },
     (error) => {
       console.log(error);
@@ -56,6 +69,39 @@ export class StartQuizComponent implements OnInit {
 
     this.locationSt.onPopState(() => {
       history.pushState(null, location.href);
+    });
+  }
+
+  submitQuiz() {
+    Swal.fire({
+      title: "Do you want to finish ?",
+      showCancelButton: true,
+      confirmButtonText: "Submit",
+      icon: "info",
+
+    }).then((e) => {
+
+      if(e.isConfirmed) {
+        // calculate answers
+        this.isSubmit = true;
+
+        this.questions.forEach((q) => {
+          if(q.givenAnswer==q.answer) {
+            this.correctAnswers++;
+            let marksSingle = this.questions[0].quiz.maxMarks/this.questions.length
+            this.marksGot += marksSingle;
+          }
+
+          if(q.givenAnswer.trim() != '') {
+            this.attempted++;
+          }
+        });
+
+        console.log("Correct answers: " + this.correctAnswers);
+        console.log("Marks Got: "+ this.marksGot);
+        console.log("Attemted: " + this.attempted);
+      
+      }
     });
   }
 
