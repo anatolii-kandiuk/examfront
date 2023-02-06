@@ -11,6 +11,7 @@ export class LoadQuizComponent implements OnInit {
   
   categoryId=0;
   quizzes=[{
+    quizId: '',
     title: '',
     description: '',
     maxMarks: '',
