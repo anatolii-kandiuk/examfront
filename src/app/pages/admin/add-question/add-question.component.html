@@ -12,17 +12,17 @@
 
             <mat-card-content>
                 <form (submit)="addQuestion()" class="mt20">
-                    <mat-form-field class="w100">
-                        <mat-label>Type Question</mat-label>
-                        <textarea
+
+                        <ckeditor 
+                            class="mb20"
                             required
-                            row="5"
+                            [editor]="Editor"
+                            row="10"
                             [(ngModel)]="question.content"
                             name="content"
-                            matInput
-                            placeholder="Type Question">
-                        </textarea>
-                    </mat-form-field>
+                            >
+                        </ckeditor>
+                   
 
                     <div class="row">
                         <div class="col-md-6">
