@@ -2,7 +2,15 @@
     <div class="container">
         <div class="row">
             <div class="col-md-2">
-                <h3>Instructions</h3>
+                <mat-card style="margin-top: 70px;">
+                    <mat-card-content>
+                    <h3>Instructions</h3>
+                    <ul>
+                        <li>Don`t refresh the page!</li>
+                        <li>Don`t switch the tab!</li>
+                    </ul>
+                    </mat-card-content>
+                </mat-card>
             </div>
     
             <div class="col-md-8">
@@ -23,7 +31,7 @@
                                 <input 
                                     type="radio"
                                     [value]="q.optionOne"
-                                    name="i"
+                                    [name]="$any(i)"
                                     [(ngModel)]="q.givenAnswer"
                                 />
                                 {{ q.optionOne }}
@@ -32,7 +40,7 @@
                                 <input 
                                     type="radio"
                                     [value]="q.optionTwo"
-                                    name="i"
+                                    [name]="$any(i)"
                                     [(ngModel)]="q.givenAnswer"
                                 />
                                 {{ q.optionTwo }}
@@ -43,7 +51,7 @@
                                 <input 
                                     type="radio"
                                     [value]="q.optionThree"
-                                    name="i"
+                                    [name]="$any(i)"
                                     [(ngModel)]="q.givenAnswer"
                                 />
                                 {{ q.optionThree }}
@@ -52,7 +60,7 @@
                                 <input 
                                     type="radio"
                                     [value]="q.optionFour"
-                                    name="i"
+                                    [name]="$any(i)"
                                     [(ngModel)]="q.givenAnswer"
                                 />
                                 {{ q.optionFour }}
