@@ -56,7 +56,6 @@ export class StartQuizComponent implements OnInit {
     this._questions.getQuestionsOfQuizForTest(this.quizId).subscribe(
     (data: any) => {
       this.questions = data;
-
       this.timer = this.questions.length*2*60;
 
       this.startTimer();
@@ -120,22 +119,6 @@ export class StartQuizComponent implements OnInit {
         console.log(error);
       }
     );
-    // this.isSubmit = true; 
-
-    // this.questions.forEach((q) => {
-    //   if(q.givenAnswer==q.answer) {
-    //     this.correctAnswers++;
-    //     let marksSingle = this.questions[0].quiz.maxMarks/this.questions.length
-    //     this.marksGot += marksSingle;
-    //   }
-
-    //   if(q.givenAnswer.trim() != '') {
-    //     this.attempted++;
-    //   }
-    // });
-
-    // console.log("Correct answers: " + this.correctAnswers);
-    // console.log("Marks Got: "+ this.marksGot);
-    // console.log("Attemted: " + this.attempted);  
+    
   }
 }

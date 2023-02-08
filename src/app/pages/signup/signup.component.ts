@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { sequenceEqual } from 'rxjs';
 import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
@@ -10,7 +11,10 @@ import Swal from 'sweetalert2';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
-  constructor(private userService: UserService, private snack: MatSnackBar) {}
+  constructor(
+    private userService: UserService, 
+    private snack: MatSnackBar,
+    private router: Router) {}
 
   public user = {
     username:'',
@@ -36,14 +40,16 @@ export class SignupComponent {
       return;
     }
 
-    // validate
-
-
-
     this.userService.addUser(this.user).subscribe(
       (data: any) => {
         console.log(data);
-        Swal.fire('Success', 'The user: ' + data.username + ' has successfully registered!', 'success')
+        Swal.fire(
+          'Success', 
+          'The user: ' + data.username + ' has successfully registered!', 
+          'success'
+        ).then((e) => {
+          this.router.navigate(['login']);
+        });
       },
       (error) => {
         console.log(error);

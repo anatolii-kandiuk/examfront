@@ -49,7 +49,7 @@ export class AddQuestionComponent implements OnInit {
     } else if(this.question.optionTwo.trim()=='' || this.question.optionTwo==null) {
       return;
     }
-
+    
     this._question.addQuestion(this.question).subscribe(
       (data: any) => {
         Swal.fire("Success", "Question Added", "success");
