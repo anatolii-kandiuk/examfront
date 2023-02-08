@@ -59,10 +59,6 @@ export class StartQuizComponent implements OnInit {
 
       this.timer = this.questions.length*2*60;
 
-      this.questions.forEach((q) => {
-        q["givenAnswer"] = ''; 
-      });
-
       this.startTimer();
     },
     (error) => {
@@ -112,22 +108,34 @@ export class StartQuizComponent implements OnInit {
   }
 
   evalQuiz() {
-    this.isSubmit = true; 
 
-    this.questions.forEach((q) => {
-      if(q.givenAnswer==q.answer) {
-        this.correctAnswers++;
-        let marksSingle = this.questions[0].quiz.maxMarks/this.questions.length
-        this.marksGot += marksSingle;
+    this._questions.evalQuiz(this.questions).subscribe(
+      (data: any) => {
+        this.marksGot = data.marksGot;
+        this.correctAnswers = data.correctAnswers;
+        this.attempted = data.attempted;
+        this.isSubmit = true;
+      },
+      (error) => {
+        console.log(error);
       }
+    );
+    // this.isSubmit = true; 
 
-      if(q.givenAnswer.trim() != '') {
-        this.attempted++;
-      }
-    });
+    // this.questions.forEach((q) => {
+    //   if(q.givenAnswer==q.answer) {
+    //     this.correctAnswers++;
+    //     let marksSingle = this.questions[0].quiz.maxMarks/this.questions.length
+    //     this.marksGot += marksSingle;
+    //   }
 
-    console.log("Correct answers: " + this.correctAnswers);
-    console.log("Marks Got: "+ this.marksGot);
-    console.log("Attemted: " + this.attempted);  
+    //   if(q.givenAnswer.trim() != '') {
+    //     this.attempted++;
+    //   }
+    // });
+
+    // console.log("Correct answers: " + this.correctAnswers);
+    // console.log("Marks Got: "+ this.marksGot);
+    // console.log("Attemted: " + this.attempted);  
   }
 }
