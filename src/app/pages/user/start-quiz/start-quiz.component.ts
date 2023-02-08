@@ -31,9 +31,9 @@ export class StartQuizComponent implements OnInit {
     },
   ];
 
-  marksGot = 0;
-  correctAnswers = 0;
-  attempted = 0;
+  marksGot: any;
+  correctAnswers: any;
+  attempted: any;
 
   isSubmit = false;
 
