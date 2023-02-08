@@ -111,7 +111,7 @@ export class StartQuizComponent implements OnInit {
 
     this._questions.evalQuiz(this.questions).subscribe(
       (data: any) => {
-        this.marksGot = data.marksGot;
+        this.marksGot = parseFloat(Number(data.marksGot).toFixed(2));
         this.correctAnswers = data.correctAnswers;
         this.attempted = data.attempted;
         this.isSubmit = true;

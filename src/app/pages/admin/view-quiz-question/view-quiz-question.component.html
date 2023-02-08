@@ -13,13 +13,13 @@
                     Add Question
                 </button>
 
+
             </div>
             <mat-card *ngFor="let q of questions; let i=index" class="mt20">
                 <mat-card-content>
-                    <p>
-                        <b class="fs20">Q{{i+1}})</b> 
-                        <span class="ml20 fs20">{{ q.content }}</span>
-                    </p>
+                   
+                    <b>Q{{i+1}})</b> <span class="ml20 fs20" [innerHTML]="q.content"></span>
+                    
                     <mat-divider></mat-divider> <br> 
                     <div class="container-fluid">
                         <div class="row">
