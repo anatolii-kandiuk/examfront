@@ -2,3 +2,8 @@
     background-image: url("../../../../assets/category-icon.png");
     background-size: cover; 
 }
+
+.position-element {
+    display: flex;
+    justify-content:space-between;
+}

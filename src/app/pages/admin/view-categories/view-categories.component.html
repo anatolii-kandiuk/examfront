@@ -1,17 +1,31 @@
 <mat-card>
     <div class="container">
         <h2 class="mt20" mat-subheader>All Categories</h2>
-        <mat-card-header class="row mb20" *ngFor="let c of categories">
-            <div mat-card-avatar class="category-icon"></div>
-    
-            <mat-card-title style="margin-bottom: 5px">
+        
+        <mat-card-content class="position-element row mb20" *ngFor="let c of categories">
+            <mat-card-header>
+            
+                <div mat-card-avatar class="category-icon"></div>
+            
+                <mat-card-title style="margin-bottom: 5px">
                 {{ c.title }}
-            </mat-card-title>
-            <mat-card-subtitle>
+                </mat-card-title>
+                <mat-card-subtitle>
                 {{ c.description }}
-            </mat-card-subtitle>
-            <mat-divider></mat-divider>
-        </mat-card-header>
+                </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-actions>
+                <button  
+                    mat-flat-button 
+                    color="warn" 
+                    class="ml20"
+                    (click)="deleteCategory(c.categoryId)"
+                >
+                Delete
+                </button>  
+            </mat-card-actions>
+            
+        </mat-card-content>
     </div>         
     
     <div class="container text-center mt20 mb20">
